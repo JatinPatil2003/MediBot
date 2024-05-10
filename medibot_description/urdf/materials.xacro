@@ -5,10 +5,13 @@
   <color rgba="0.700 0.700 0.700 1.000"/>
 </material>
 <material name="steel_satin">
-  <color rgba="0.6274509803921569 0.6274509803921569 0.6274509803921569 1.0"/>
+  <color rgba="0.4 0.4 0.4 1.0"/>
 </material>
 <material name="plastic_translucent_glossy_gray">
-  <color rgba="0.7019607843137254 0.7019607843137254 0.7019607843137254 0.0"/>
+  <color rgba="0.1 0.1 0.1 1.0"/>
+</material>
+<material name="blue">
+  <color rgba="0.1 0.1 0.7 1.0"/>
 </material>
 
 </robot>

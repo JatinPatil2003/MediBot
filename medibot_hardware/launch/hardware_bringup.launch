@@ -1,0 +1,17 @@
+<launch>
+    <node name="rosserial" pkg="rosserial_python" type="serial_node.py" output="screen">
+      <param name="port" value="/dev/ttyACM0"/>
+      <param name="baud" value="57600"/>
+    </node>
+
+    <include file="$(find medibot_description)/launch/display.launch"/>
+
+    <node name="pid_control" pkg="medibot_hardware" type="pid_control.py"/>
+
+    <node name="odometry" pkg="medibot_hardware" type="odometry.py"/>
+    
+    <node name="transform" pkg="medibot_hardware" type="transform.py"/>
+    
+    <include file="$(find ydlidar_ros_driver)/launch/X4.launch"/>
+
+</launch>
