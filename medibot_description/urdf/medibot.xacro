@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<robot name="medibot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find medibot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find medibot_description)/urdf/medibot.trans" />
+<xacro:include filename="$(find medibot_description)/urdf/medibot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.12348117476989938 0.030658625276350104 0.04780371902134241" rpy="0 0 0"/>
+    <mass value="10.161748166428781"/>
+    <inertia ixx="0.152266" iyy="0.143569" izz="0.265149" ixy="-0.032066" iyz="0.017667" ixz="0.00919"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://medibot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://medibot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-0.268067 0.0 -0.1408" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.268067 -0.0 -0.1408" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://medibot_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.268067 -0.0 -0.1408" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://medibot_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_wheel_1">
+  <inertial>
+    <origin xyz="-8.806132971057051e-15 0.003742975244019703 8.167078124898808e-15" rpy="0 0 0"/>
+    <mass value="0.8943597759780031"/>
+    <inertia ixx="0.000733" iyy="0.001393" izz="0.000733" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.1282 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://medibot_description/meshes/l_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plastic_translucent_glossy_gray"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.1282 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://medibot_description/meshes/l_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_wheel_1">
+  <inertial>
+    <origin xyz="4.220585108133287e-15 -0.0037429752440196196 4.378442053365461e-15" rpy="0 0 0"/>
+    <mass value="0.8943597759780031"/>
+    <inertia ixx="0.000733" iyy="0.001393" izz="0.000733" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.1282 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://medibot_description/meshes/r_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plastic_translucent_glossy_gray"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.1282 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://medibot_description/meshes/r_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="base2lidar" type="fixed">
+  <origin xyz="0.268067 0.0 0.1408" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="base2left" type="continuous">
+  <origin xyz="0.0 0.1282 0.05" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="l_wheel_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="base2right" type="continuous">
+  <origin xyz="0.0 -0.1282 0.05" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="r_wheel_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+</robot>
