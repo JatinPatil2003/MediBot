@@ -4,8 +4,8 @@
 <material name="silver_default">
   <color rgba="0.700 0.700 0.700 1.000"/>
 </material>
-<material name="steel_satin">
-  <color rgba="0.4 0.4 0.4 1.0"/>
+<material name="black">
+  <color rgba="0.2 0.2 0.2 1.0"/>
 </material>
 <material name="plastic_translucent_glossy_gray">
   <color rgba="0.1 0.1 0.1 1.0"/>
