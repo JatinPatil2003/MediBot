@@ -12,6 +12,6 @@
     
     <node name="transform" pkg="medibot_hardware" type="transform.py"/>
     
-    <include file="$(find ydlidar_ros_driver)/launch/X4.launch"/>
+    <include file="$(find ydlidar_ros_driver)/launch/X2.launch"/>
 
 </launch>
